@@ -1,0 +1,33 @@
+nav {
+  background-color: black;
+  height: 20%;
+}
+
+nav button {
+  float: right;
+  margin-right: 20px;
+  color: white;
+  background-color: darkblue;
+  border: none;
+  padding: 14px 16px;
+  font-size: 16px;
+}
+
+nav button:hover {
+  background-color: rgb(36, 36, 192);
+}
+
+/*Making the modal container
+/* Hide the modal container by default */
+#modal-container {
+  display: none;
+}
+
+/* Style the sign-up button */
+#signup-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+}
