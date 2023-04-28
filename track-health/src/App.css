@@ -89,8 +89,8 @@ nav h1 span {
   background: rgb(27,0,242);
   background: linear-gradient(0deg, rgba(27,0,242,1) 0%, rgba(127,121,255,1) 100%);
   background-size: 200% 100%;
-  animation: sparkle 5s infinite;
   -webkit-animation: sparkle 2s infinite;
+  animation: sparkle 5s infinite;
 }
 
 @keyframes sparkle {
