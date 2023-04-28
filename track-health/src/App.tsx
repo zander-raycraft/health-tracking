@@ -64,7 +64,7 @@ function App() {
   // }, []);
 
   return (
-    <div>
+    <div className='app'>
       <nav>
         <h1 id="welcomeText"><span>MyStar</span> Health Tracker</h1>
         <img src='/Black_star.png' alt='black-star'/>
@@ -77,6 +77,7 @@ function App() {
 
       <div id='firstHalf'>
         <hr className="bar" />
+        <hr className="bar2" />
         <div className="first-half-paragraph-container">
           <h1>About us...</h1>
           <p>The <span>MyStar</span> team wanted to provide an easily accessible way to log and track
@@ -113,6 +114,30 @@ function App() {
             className='legDayCard'
           />
         </div>
+      </div>
+
+      {/* This is the container for the second half of the landing page */}
+      <div className='secondHalf'>
+        <h1>How we can help...</h1>  
+        <p>We know it can be a lot trying to manage all 
+          elements of your life, so why not let us carry some of that burden!</p> 
+        <h1>What we can offer</h1> 
+        <p>We are a free tracking service, and no we do not track your location, we will 
+        leave that to the big dogs (Mark Zuckerberg). <br/><br/>Here are some cool things we 
+        can offer that we think might just help you out:</p>
+
+        <p><span>Workout Tracking</span><img src='/Black_star.png' alt='black-star'></img>- We can help you track your workouts and categorize them, allowing you to
+        see the fruits of your labor</p>
+
+        <p><span>Mental Health check-in</span><img src='/Black_star.png' alt='black-star'></img>- We know that mental health is as important, if not more than 
+        physical healh. By logging how you feel and better evaluate where you are right now in your mental health
+        journey. Oh and with your conscent, we might reach out and check on you every now and then, because it is
+        nice to have someone sometimes</p>
+
+        <p><span>Journaling</span><img src='/Black_star.png' alt='black-star'></img>- We want to give you a space to record all your thoughts, and reflections. Kinda
+        like a a virtual journal. And do not worry, we cannot see waht you put in, only you the authorized user can,
+        all thanks to some cool blockchain things</p>
+
       </div>
 
 

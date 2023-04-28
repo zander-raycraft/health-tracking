@@ -1,3 +1,9 @@
+.app {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
 
 nav {
   z-index: 2;
@@ -89,6 +95,7 @@ nav h1 span {
   background: rgb(27,0,242);
   background: linear-gradient(0deg, rgba(27,0,242,1) 0%, rgba(127,121,255,1) 100%);
   background-size: 200% 100%;
+  overflow: hidden;
   -webkit-animation: sparkle 2s infinite;
   animation: sparkle 5s infinite;
 }
@@ -109,29 +116,49 @@ nav h1 span {
   position: relative;
   left: 5.0vw; 
   top: 10.0vw;
-  height: 50.0vw;
-  width: 50.0vw;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
+  height: 85%;
+  width: 50%;
   overflow-y: hidden;
   overflow-x: hidden;
 
 }
 
-.pushDayCard,
-.pullDayCard,
-.legDayCard {
-  position: relative;
+.pushDayCard {
+  position: absolute;
   background: beige;
-  width: 14vw;
-  top: -6vw;
-  height: 25.0vw;
+  width: 25%;
+  top: 40%;
+  height: 40%;
   box-shadow: 5px 5px 5px darkblue;
   margin: 0 10px;
   overflow-wrap: break-word;
   overflow-y: scroll;
-  ;
+}
+
+.pullDayCard {
+  position: absolute;
+  background: beige;
+  width: 25%;
+  top: 45%;
+  left: 30%;
+  height: 40%;
+  box-shadow: 5px 5px 5px darkblue;
+  margin: 0 10px;
+  overflow-wrap: break-word;
+  overflow-y: scroll;
+}
+
+.legDayCard {
+  position: absolute;
+  background: beige;
+  width: 25%;
+  top: 50%;
+  left: 60%;
+  height: 40%;
+  box-shadow: 5px 5px 5px darkblue;
+  margin: 0 10px;
+  overflow-wrap: break-word;
+  overflow-y: scroll;
 }
 
 .pushDayCard img,
@@ -173,11 +200,16 @@ nav h1 span {
 
 .bar {
   position: absolute;
-  top: 17vw;
-  left: 12vw;
+  top: 35%;
+  left: 23%;
   width: 50%;
   height: 2px;
   background-color: #ccc;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
 }
 
 .first-half-paragraph-container {
@@ -190,15 +222,6 @@ nav h1 span {
   animation-name: fade-in;
   animation-duration: 5s;
   animation-fill-mode: forwards;
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 .first-half-paragraph-container h1 {
@@ -222,4 +245,76 @@ nav h1 span {
   padding: 10px;
   font-size: 1.7vw;
   font-style: italic;
+}
+
+.secondHalf {
+  position: relative;
+  opacity: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  top: -68%;
+  left: 55vw;
+  width: 42vw;
+  height: 75%;
+  animation-name: fade-in;
+  animation-duration: 5s;
+  animation-delay: 3s;
+  animation-fill-mode: forwards;
+}
+
+.secondHalf h1 {
+  position: relative;
+  top: -5%;
+  left: 1.5vw;
+  padding: 10px;
+  font-size: 2.2vw;
+  font-style: italic;
+}
+
+.secondHalf p {
+  position: relative;
+  color: beige;
+  top: -10%;
+  left: 2.0vw;
+  padding: 10px;
+  font-size: 1.8vw;
+  font-style: italic;
+}
+.secondHalf p img {
+  position: absolute;
+  opacity: .3;
+  left: 2%;
+  top: 1%;
+  width: 3vw;
+  height: 3vw;
+}
+
+.secondHalf p span{
+  color: darkblue;
+  font-weight: bolder;
+  font-style: normal;
+}
+
+.bar2 {
+  position: absolute;
+  top: 4vw;
+  width: 3px;
+  height: 80%;
+  left: 99%;
+  background-color: #ccc;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
