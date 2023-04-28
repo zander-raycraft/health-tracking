@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { initializeApp } from 'firebase/app';
 import './App.css';
 import Card from './card'
-import { getDatabase, onValue, push, ref } from '@firebase/database';
+// import { getDatabase } from '@firebase/database';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -16,22 +16,22 @@ const firebaseConfig = {
 
 // Initialize Firebase
 initializeApp(firebaseConfig);
-const db = getDatabase();
+// const db = getDatabase();
 
 //telling what we are going to be getting into the Firebase
-interface Note {
-  name: string;
-  notes: string;
-  workType: string;
-}
+// interface Note {
+//   name: string;
+//   notes: string;
+//   workType: string;
+// }
 
 
 function App() {
 
   const [ name, setName ] = useState("");
   const [ notes, setNotes ] = useState("");
-  const [ workType, setWorkType] = useState("")
-  const [ allNotes, setAllNotes ] = useState<Note[]>([]);
+  // const [ workType, setWorkType] = useState("")
+  // const [ allNotes, setAllNotes ] = useState<Note[]>([]);
 
 
   const openModal = () => {
@@ -42,41 +42,46 @@ function App() {
   }
 
 
-  const submitNode = () => {
-    //Putting in the database
+  // const submitNode = () => {
+  //   //Putting in the database
 
-    push(ref(db,"notes/"), {
-      name,
-      notes,
-      workType
-    });
+  //   push(ref(db,"notes/"), {
+  //     name,
+  //     notes,
+  //     // workType
+  //   });
 
-    setName("");
-    setNotes("");
-  };
+  //   setName("");
+  //   setNotes("");
+  // };
 
-  useEffect(() => {
-    //Creating an observer 
-    onValue(ref(db, "notes/"), snapshot => {
-    console.log(snapshot.val());
-    setAllNotes(Object.values(snapshot.val()));
-  });
-  }, []);
+  // useEffect(() => {
+  //   //Creating an observer 
+  //   onValue(ref(db, "notes/"), snapshot => {
+  //   console.log(snapshot.val());
+  //   setAllNotes(Object.values(snapshot.val()));
+  // });
+  // }, []);
 
   return (
     <div>
       <nav>
         <h1 id="welcomeText"><span>MyStar</span> Health Tracker</h1>
+        <img src='/Black_star.png' alt='black-star'/>
         <button id="login-button">Login</button>
-        <button id="create-button" onClick={ openModal }>Create Account</button>
+        <button id="create-button" onClick={ openModal }>Register</button>
       </nav>
 
       <div id="background-container">
       </div>
 
       <div id='firstHalf'>
-        <div id="para-container">
         <hr className="bar" />
+        <div className="first-half-paragraph-container">
+          <h1>About us...</h1>
+          <p>The <span>MyStar</span> team wanted to provide an easily accessible way to log and track
+          your health Journey, and this app does exactly that, provide you with a way to track your personal
+          journey and see how much progress you have made!</p>
         </div>
         {/* This is the push day card */}
         <div>
@@ -128,15 +133,15 @@ function App() {
       </div>
       <input type="text" placeholder="Name" value={ name } onChange={e => setName(e.target.value)}/>
       <input type="text" placeholder="Notes" value={ notes } onChange={e => setNotes(e.target.value)}/>
-      <select title="Select Workout type" id="workoutmenu" onChange={e => setWorkType(e.target.value)}>
+      {/* <select title="Select Workout type" id="workoutmenu" onChange={e => setWorkType(e.target.value)}>
         <option value="">Select Workout type</option>
         <option value="Push Workout">Push</option>
         <option value="Pull Workout">Pull</option>
         <option value="Leg workout">Legs</option>
-      </select>
+      </select> */}
       <br/>
-      <input type="button" value="Add Note" onClick={ submitNode }/>
-      { allNotes.map(x => <p> {x.name}: <br/>{x.notes}: <br/> {x.workType} </p>) }
+      {/* <input type="button" value="Add Note" onClick={ submitNode }/>
+      { allNotes.map(x => <p> {x.name}: <br/>{x.notes}: <br/> {x.workType} </p>) } */}
     </div>
   );
 }
