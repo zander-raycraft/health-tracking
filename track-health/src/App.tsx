@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-import { initializeApp } from 'firebase/app';
+// import { initializeApp } from 'firebase/app';
 import './App.css';
 import Card from './card'
 // import { getDatabase } from '@firebase/database';
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyA14wjANAoth86YpTPzx6iN8Qg2TrVOMv0",
-  authDomain: "fir-demo-54cb7.firebaseapp.com",
-  projectId: "fir-demo-54cb7",
-  storageBucket: "fir-demo-54cb7.appspot.com",
-  messagingSenderId: "710037702734",
-  appId: "1:710037702734:web:aeed7106f338f5a8cd9b1f"
-};
+// const firebaseConfig = {
+//   apiKey: "AIzaSyA14wjANAoth86YpTPzx6iN8Qg2TrVOMv0",
+//   authDomain: "fir-demo-54cb7.firebaseapp.com",
+//   projectId: "fir-demo-54cb7",
+//   storageBucket: "fir-demo-54cb7.appspot.com",
+//   messagingSenderId: "710037702734",
+//   appId: "1:710037702734:web:aeed7106f338f5a8cd9b1f"
+// };
 
 // Initialize Firebase
-initializeApp(firebaseConfig);
+// initializeApp(firebaseConfig);
 // const db = getDatabase();
 
 //telling what we are going to be getting into the Firebase
@@ -26,6 +26,7 @@ initializeApp(firebaseConfig);
 // }
 
 
+//Starting the function of the app
 function App() {
 
   const [ name, setName ] = useState("");
