@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { initializeApp } from 'firebase/app';
 import './App.css';
+import Card from './card'
 import { getDatabase, onValue, push, ref } from '@firebase/database';
 
 // Your web app's Firebase configuration
@@ -64,30 +65,69 @@ function App() {
 
   return (
     <div>
-    <nav>
-      <button id="login-button">login</button>
-      <button id="create-button" onClick={ openModal }>create account</button>
-    </nav>
-    <div id="modal-container">
-      <form>
+      <nav>
+        <h1 id="welcomeText"><span>MyStar</span> Health Tracker</h1>
+        <button id="login-button">Login</button>
+        <button id="create-button" onClick={ openModal }>Create Account</button>
+      </nav>
 
-        <label htmlFor="username">Username:</label>
-        <input type="text" id="username" name="username" />
+      <div id="background-container">
+      </div>
 
-        <label htmlFor="email">Email:</label>
-        <input type="email" id="email" name="email" />
+      <div id='firstHalf'>
+        <div id="para-container">
+        <hr className="bar" />
+        </div>
+        {/* This is the push day card */}
+        <div>
+          <Card
+            imageUrl="/man-benching.jpeg"
+            title="push-day"
+            description='Push day is when you intend to work on the muscles commonly used in pushing things
+            such as triceps, chests and shoudlers.'
+            className='pushDayCard'
+          />
+        </div>
+        {/* This is the pull day card */}
+        <div>
+          <Card
+            imageUrl="/pull-day.webp"
+            title="pull-day"
+            description='Pull day is when you intend to work on the muscles commonly used in pulling things
+            such as biceps, back and shoudlers.'
+            className='pullDayCard'
+          />
+        </div>
+        {/* This is the leg day card */}
+        <div>
+          <Card
+            imageUrl="/leg-day.jpeg"
+            title="Leg-day"
+            description='Leg day is when you spend your time focusing on the muscles of the leg such as your quads or
+            your calves.'
+            className='legDayCard'
+          />
+        </div>
+      </div>
 
-        <label htmlFor="password">Password:</label>
-        <input type="password" id="password" name="password" />
 
-        <button id="signup-btn">Sign Up</button>
-      </form>
-    </div>
-      <br/>
+      <div id="modal-container">
+        <form>
+
+          <label htmlFor="username">Username:</label>
+          <input type="text" id="username" name="username" />
+
+          <label htmlFor="email">Email:</label>
+          <input type="email" id="email" name="email" />
+
+          <label htmlFor="password">Password:</label>
+          <input type="password" id="password" name="password" />
+
+          <button id="signup-btn">Sign Up</button>
+        </form>
+      </div>
       <input type="text" placeholder="Name" value={ name } onChange={e => setName(e.target.value)}/>
-      <br/><br/>
       <input type="text" placeholder="Notes" value={ notes } onChange={e => setNotes(e.target.value)}/>
-      <br/>
       <select title="Select Workout type" id="workoutmenu" onChange={e => setWorkType(e.target.value)}>
         <option value="">Select Workout type</option>
         <option value="Push Workout">Push</option>
@@ -96,9 +136,6 @@ function App() {
       </select>
       <br/>
       <input type="button" value="Add Note" onClick={ submitNode }/>
-
-      <br/>
-      <br/>
       { allNotes.map(x => <p> {x.name}: <br/>{x.notes}: <br/> {x.workType} </p>) }
     </div>
   );
