@@ -1,3 +1,7 @@
+.firebase-auth-container {
+  background-color: black;
+}
+
 .app {
   position: absolute;
   height: 100%;
@@ -90,6 +94,7 @@ nav h1 span {
 
 #background-container {
   position: absolute;
+  top:0;
   height: 100%;
   width: 100%;
   background: rgb(27,0,242);
