@@ -5,20 +5,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import LoginGoogle from './loginPage';
 import './App.css';
 import Card from './card'
-// import { getDatabase } from '@firebase/database';
 
-
-
-
-//telling what we are going to be getting into the Firebase
-// interface Note {
-//   name: string;
-//   notes: string;
-//   workType: string;
-// }
-
-
-//Starting the function of the app
 function App() {
 
   // Your web app's Firebase configuration
@@ -36,7 +23,6 @@ function App() {
 
   const [ user, setUser ] = useState({ email: '', uid: "" })
 
-  //logout handler
   const handleLogout = () => {
     firebase.auth().signOut();
   };
@@ -49,35 +35,8 @@ function App() {
         setUser(null);
       }
     });
-    return unsubscribe; // Add this line to return the cleanup function
+    return unsubscribe;
   }, []);
-
-  const [ name, setName ] = useState("");
-  const [ notes, setNotes ] = useState("");
-  // const [ workType, setWorkType] = useState("")
-  // const [ allNotes, setAllNotes ] = useState<Note[]>([]);
-
-
-  // const submitNode = () => {
-  //   //Putting in the database
-
-  //   push(ref(db,"notes/"), {a
-  //     name,
-  //     notes,
-  //     // workType
-  //   });
-
-  //   setName("");
-  //   setNotes("");
-  // };
-
-  // useEffect(() => {
-  //   //Creating an observer 
-  //   onValue(ref(db, "notes/"), snapshot => {
-  //   console.log(snapshot.val());
-  //   setAllNotes(Object.values(snapshot.val()));
-  // });
-  // }, []);
 
   return (
     <div className='app'>
@@ -97,13 +56,9 @@ function App() {
         )}
       </nav>
       <Routes>
-  {user ? (
-    <Route path="/" element={<Card />} />
-      ) : (
-        <Route path="/" element={<LoginGoogle />} />
-      )}
-      <Route path="/login" element={<LoginGoogle />} />
-    </Routes>
+        <Route path="/" element={<Card />} />
+        <Route path="/login" element={<LoginGoogle />} />
+      </Routes>
 
       <div id="background-container">
       </div>
@@ -118,8 +73,6 @@ function App() {
           journey and see how much progress you have made!</p>
         </div>
 
-
-        {/* This is the push day card */}
         <div>
           <Card
             imageUrl="/man-benching.jpeg"
@@ -130,8 +83,6 @@ function App() {
           />
         </div>
 
-        
-        {/* This is the pull day card */}
         <div>
           <Card
             imageUrl="/pull-day.webp"
@@ -142,8 +93,6 @@ function App() {
           />
         </div>
 
-
-        {/* This is the leg day card */}
         <div>
           <Card
             imageUrl="/leg-day.jpeg"
@@ -154,9 +103,6 @@ function App() {
           />
         </div>
       </div>
-
-      {/* This is the container for the second half of the landing page */}
-
 
       <div className='secondHalf'>
         <h1>How we can help...</h1>  
@@ -178,22 +124,10 @@ function App() {
         <p><span>Journaling</span><img src='/Black_star.png' alt='black-star'></img>- We want to give you a space to record all your thoughts, and reflections. Kinda
         like a a virtual journal. And do not worry, we cannot see waht you put in, only you the authorized user can,
         all thanks to some cool blockchain things</p>
-
       </div>
 
-
-      <input type="text" placeholder="Name" value={ name } onChange={e => setName(e.target.value)}/>
-      <input type="text" placeholder="Notes" value={ notes } onChange={e => setNotes(e.target.value)}/>
-
-
-      {/* <select title="Select Workout type" id="workoutmenu" onChange={e => setWorkType(e.target.value)}>
-        <option value="">Select Workout type</option>
-        <option value="Push Workout">Push</option>
-        <option value="Pull Workout">Pull</option>
-        <option value="Leg workout">Legs</option>
-      </select> */}
-      {/* <input type="button" value="Add Note" onClick={ submitNode }/>
-      { allNotes.map(x => <p> {x.name}: <br/>{x.notes}: <br/> {x.workType} </p>) } */}
+      {/* <input type="text" placeholder="Name" value={ name } onChange={e => setName(e.target.value)}/>
+      <input type="text" placeholder="Notes" value={ notes } onChange={e => setNotes(e.target.value)}/> */}
     </div>
   );
 }
