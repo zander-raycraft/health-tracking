@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import * as firebaseui from 'firebaseui';
 import 'firebaseui/dist/firebaseui.css';
 import firebase from 'firebase/compat/app';
+import { Link } from 'react-router-dom';
 
 const LoginGoogle = (props) => {
     useEffect(() => {
@@ -19,8 +20,10 @@ const LoginGoogle = (props) => {
     }, []);
     return (
         <>
-            <div>LoginGoogle</div>
-            <div className="firebase-auth-container"></div>
+            <div className="login-window">
+                <div className="firebase-auth-container"></div>
+                <p className="register-link">Don't have an account yet? <Link to="/register">Register Now</Link></p>
+            </div>
         </>
     )
 }

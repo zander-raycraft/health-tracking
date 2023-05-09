@@ -1,5 +1,33 @@
+.login-window {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
 .firebase-auth-container {
-  background-color: black;
+  margin-bottom: 20px;
+}
+
+.register-link {
+  box-shadow: 5px 5px black;
+  font-style: italic;
+  top: -2.5vw;
+  background-color: white;
+  padding: 7px;
+  -o-border-radius: 20px;
+  font-weight: bold;
+  position: relative;
+  z-index: 10;
+  margin-top: 10px;
+  text-align: center;
+  color: black;
+  font-size: 1.2vw;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  border-radius: 20px;
 }
 
 .app {
